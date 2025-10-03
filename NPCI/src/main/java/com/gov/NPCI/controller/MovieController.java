@@ -35,4 +35,15 @@ public class MovieController {
 	public Movie findMovie(@RequestParam String name2 ) throws Exception {
 		return service.searchMovie(name2);
 	}
+	
+	
+	@PostMapping("/add-movie")
+	public String movieAdd(@RequestParam String name,@RequestParam String collection, @RequestParam double ratings){
+		return service.add_1(name, collection, ratings);
+	}
+	
+	
+	
+	
+	
 }

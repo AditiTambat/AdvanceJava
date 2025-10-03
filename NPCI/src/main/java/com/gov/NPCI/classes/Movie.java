@@ -32,6 +32,32 @@ public class Movie {
 	public String toString() {
 		return "Movie [name=" + name + ", collections=" + collections + ", ratings=" + ratings + "]";
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getCollections() {
+		return collections;
+	}
+
+	public void setCollections(String collections) {
+		this.collections = collections;
+	}
+
+	public double getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(double ratings) {
+		this.ratings = ratings;
+	}
+	
+	
 	
 	
 

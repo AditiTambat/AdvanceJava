@@ -1,5 +1,6 @@
 package com.gov.NPCI.service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -55,6 +56,7 @@ public class MovieService {
 	}
 	
 	
+	
 	public Movie searchMovie(String name2) throws Exception {
 		List<Movie> list= addMovies();
 		Iterator<Movie> itr =list.iterator();
@@ -74,7 +76,32 @@ public class MovieService {
 			throw new Exception("Movie not found..");
 		}
 		return m2;
-	} 
+	}
+	
+	
+//	public List<Movie> toprating(){
+//		
+//		List<Movie> list=addMovies();
+//		
+//		return list.stream().
+//				
+//	}
+	
+	
+	
+	public String add_1(String name, String collection, double ratings) {
+		
+		List<Movie> list= new ArrayList(addMovies());
+		
+		Movie movie = new Movie();
+		movie.setName(name);
+		movie.setCollections(collection);
+		movie.setRatings(ratings);
+		list .add(movie);
+		return movie.getName()+" added sucessfully";
+		
+	}
+	
 }
 
 	
