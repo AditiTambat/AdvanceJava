@@ -1,5 +1,7 @@
 package com.penguin_publications.Pune_publication.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,5 +32,11 @@ public class BookService {
 		System.out.println("book saved.");
 		
 		return savedBook;
+	}
+	
+	
+	
+	public List<Book> getall(){
+		return repository.findAll();
 	}
 }
