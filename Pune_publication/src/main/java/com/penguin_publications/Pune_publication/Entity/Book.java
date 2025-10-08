@@ -4,8 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 
 @Entity
 public class Book {
@@ -18,9 +16,10 @@ public class Book {
 	private double ratings;
 	
 	
-	@JoinColumn
-	@OneToOne
-	private Author author;            //foreign key
+//	@JoinColumn
+//	@OneToOne
+//	private Author author;            //foreign key for book table
+	//one book to one author
 	
 	
 	
@@ -34,23 +33,17 @@ public class Book {
 
 
 
-	public Book(int id, String bName, double price, double ratings, Author author) {
+	public Book(int id, String bName, double price, double ratings) {
 		super();
 		this.id = id;
 		this.bName = bName;
 		this.price = price;
 		this.ratings = ratings;
-		this.author = author;
+		
 	}
 	
 
-	public void setAuthor(Author author) {
-		this.author = author;
-	}
 	
-	public Author getAuthor() {
-		return author;
-	}
 	
 	
 	public int getId() {

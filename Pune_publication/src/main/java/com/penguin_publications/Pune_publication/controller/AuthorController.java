@@ -27,7 +27,7 @@ public class AuthorController {
 	
 	@PostMapping("/add-author")
 	public Author addAuthor(@RequestBody Author author) throws Exception {
-		
+	
 	     return service.addAuthorDetails(author);		
 	}
 	

@@ -1,10 +1,14 @@
 package com.penguin_publications.Pune_publication.Entity;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Author {
@@ -19,18 +23,36 @@ public class Author {
 	private String email;
 	
 	
+	@JoinColumn
+	@OneToMany
+	private List<Book> books;
+
+
+
 
 	public Author() {
 		super();
 	}
 
+	
+	public List<Book> getBooks() {
+		return books;
+	}
 
+	public void setBooks(List<Book> books) {
+		this.books = books;
+	}
 
-	public Author(String authorName, String email) {
+	public Author(int authorId, String authorName, String email, List<Book> books) {
 		super();
+		this.authorId = authorId;
 		this.authorName = authorName;
 		this.email = email;
+		this.books = books;
 	}
+
+
+	
 
 
 

@@ -23,7 +23,7 @@ public class BookController {
 	
 	@PostMapping("/addbook")
 	public  Book addBookController(@RequestBody Book book) {
-		
+		System.out.println(book.getId());
 		return service.addBooks(book);
 	}
 	
