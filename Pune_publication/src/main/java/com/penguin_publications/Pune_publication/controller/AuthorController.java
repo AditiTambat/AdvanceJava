@@ -12,7 +12,7 @@ import com.penguin_publications.Pune_publication.Entity.Author;
 import com.penguin_publications.Pune_publication.service.AuthorService;
 
 
-@RequestMapping("/author-controller")
+@RequestMapping("/authorcontroller")
 @RestController
 public class AuthorController {
 	
@@ -25,7 +25,7 @@ public class AuthorController {
 	
 	 
 	
-	@PostMapping("/add-author")
+	@PostMapping("/addauthor")
 	public Author addAuthor(@RequestBody Author author) throws Exception {
 	
 	     return service.addAuthorDetails(author);		
@@ -33,7 +33,7 @@ public class AuthorController {
 	
 	
 	
-	@GetMapping("/get-all-author")
+	@GetMapping("/getallauthor")
 	public List<Author> getAllAuthor() throws Exception{
 		
 		return service.getAllAuthorDetails();

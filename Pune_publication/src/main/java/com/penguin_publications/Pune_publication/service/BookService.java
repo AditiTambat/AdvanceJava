@@ -1,8 +1,8 @@
 package com.penguin_publications.Pune_publication.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.penguin_publications.Pune_publication.Entity.Book;
@@ -36,7 +36,14 @@ public class BookService {
 	
 	
 	
-	public List<Book> getall(){
-		return repository.findAll();
+	public Page<Book> getall(Pageable pageable){
+
+//		 Pageable=>Data.domain.
+//		 Pageable  instance=> repository methods. ex.findAll();
+//		 take the limited data set out of the total data.
+		
+		return repository.findAll(pageable);
+		
+		//only 2 books per page are return
 	}
 }

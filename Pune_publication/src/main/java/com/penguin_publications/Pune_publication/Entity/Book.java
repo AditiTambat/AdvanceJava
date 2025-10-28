@@ -4,6 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Book {
@@ -11,8 +15,16 @@ public class Book {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;   //@Id is for primary key uses in table
+	
+	@NotEmpty(message ="Empty field not allowed.")
+	@NotBlank(message ="only whitespaces are not allowed.")
+	@NotNull(message="Not null")
+//	@Length(min=4, max=10, message="the acceptable length is 4 , 10")
 	private String bName;
 	private double price;
+	
+	
+	@Max(10)
 	private double ratings;
 	
 	
