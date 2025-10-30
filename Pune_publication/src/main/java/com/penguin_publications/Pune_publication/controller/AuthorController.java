@@ -2,6 +2,7 @@ package com.penguin_publications.Pune_publication.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,12 +17,12 @@ import com.penguin_publications.Pune_publication.service.AuthorService;
 @RestController
 public class AuthorController {
 	
-	
-	 AuthorService service;
+	@Autowired
+	private AuthorService service;
 	 
-	 public AuthorController(AuthorService service) {
-		 this.service=service;
-	 }
+//	 public AuthorController(AuthorService service) {
+//		 this.service=service;
+//	 }
 	
 	 
 	
