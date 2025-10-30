@@ -1,6 +1,6 @@
-package com.model.model.Entity;
-
-public class Experience {
+//package com.model.model.Entity;
+//
+//public class Experience {
 	
 //	 @Id
 //	    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,4 +14,4 @@ public class Experience {
 //	    @JoinColumn
 //	    private Ceo ceo;
 
-}
+//}

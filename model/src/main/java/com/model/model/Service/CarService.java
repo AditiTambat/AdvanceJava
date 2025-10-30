@@ -21,7 +21,14 @@ public class CarService {
 		}
 		
 		
-		public List<Car> showCar(){
-			return repos.findAll();
+		public List<Car> showCar() throws Exception {
+		    List<Car> cars = repos.findAll();
+
+		    if (cars.isEmpty()) {
+		        throw new Exception("No cars found in the database");
+		    } else {
+		        return cars;
+		    }
 		}
+
 }

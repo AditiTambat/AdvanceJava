@@ -13,7 +13,7 @@ public class Car {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int cid;
+	private int id;
 	
 	
 	private String name;
@@ -25,18 +25,22 @@ public class Car {
 	@ManyToOne
 	@JoinColumn(name = "company_id")
 	private Company company;
+	
+	
+	
 
-	public int getCid() {
-		return cid;
+	public int getId() {
+		return id;
 	}
 
-	
+
+
 
 	public String getName() {
 		return name;
 	}
 
-	public void setCname(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -65,9 +69,8 @@ public class Car {
 	}
 	
 	
+
 	
-	
-	
-	
+
 
 }

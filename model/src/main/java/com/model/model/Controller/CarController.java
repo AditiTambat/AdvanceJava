@@ -28,7 +28,7 @@ public class CarController {
 	
 	
 	@GetMapping("/getcar")
-	public List<Car> getcar(){
+	public List<Car> getcar() throws Exception{
 		
 		return service.showCar();
 	}

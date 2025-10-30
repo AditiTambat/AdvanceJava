@@ -9,26 +9,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.model.model.Entity.Company;
-import com.model.model.Service.CompanyService;
+import com.model.model.Entity.Ceo;
+import com.model.model.Service.CeoService;
 
 @RestController
-@RequestMapping("/companycontroller")
-public class CompanyController {
+@RequestMapping("/ceocontroller")
+public class CeoController {
 	
 	@Autowired
-	private CompanyService service;
+	private CeoService service;
 	
 	
-	@PostMapping("/addcompany")
-	public Company addCompany(@RequestBody Company company) {
-		
-		return service.addCompanyDetail(company);
+	@PostMapping("/addceo")
+	public Ceo addCeo(@RequestBody Ceo ceo) {
+		return service.addCeoDetails(ceo);
 	}
 	
-	@GetMapping("/getcompany")
-	public List<Company> showCompanyDetail() throws Exception{
-		return service.showCompany();
+	
+	@GetMapping("/getceo")
+	public List<Ceo> getCeo() throws Exception{
+		return service.getAllCeo();
 	}
 
 }

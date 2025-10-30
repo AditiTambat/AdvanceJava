@@ -21,8 +21,15 @@ public class CompanyService {
 	}
 	
 	
-	public List<Company> showCompany(){
-		return repos.findAll();
+	public List<Company> showCompany() throws Exception {
+	    List<Company> company = repos.findAll();
+
+	    if (company.isEmpty()) {
+	        throw new Exception("No company found in the database");
+	    } else {
+	        return company;
+	    }
 	}
+
 
 }

@@ -1,7 +1,7 @@
-package com.model.model.Entity;
-
-public class Hq {
-	
+//package com.model.model.Entity;
+//
+//public class Hq {
+//	
 //	 @Id
 //	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //	    private Long id;
@@ -10,4 +10,4 @@ public class Hq {
 //	    private String state;
 //	    private String pincode;
 
-}
+//}
