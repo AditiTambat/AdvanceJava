@@ -1,9 +1,12 @@
 package com.penguin_publications.Pune_publication.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +22,7 @@ import jakarta.validation.Valid;
 
 @RequestMapping("/bookcontroller")
 @RestController
+@CrossOrigin(allowedHeaders = "http://localhost:5173/")
 public class BookController {
 	
 	@Autowired
@@ -30,6 +34,11 @@ public class BookController {
 		System.out.println(book.getId());
 		
 		return service.addBooks(book);
+	}
+	
+	@GetMapping("/showbooks")
+	public List<Book> showAllBooks() throws Exception {
+		return service.listOfBooks();
 	}
 	
 	

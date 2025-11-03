@@ -1,5 +1,7 @@
 package com.penguin_publications.Pune_publication.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,6 +37,13 @@ public class BookService {
 	}
 	
 	
+	public List<Book> listOfBooks() throws Exception {
+		   List<Book> list = repository.findAll();
+			 if (list.isEmpty()) {
+			   throw new Exception("No CEO records found");
+			 }
+			return list;
+		 }
 	
 	public Page<Book> getall(Pageable pageable){
 
