@@ -20,8 +20,8 @@ public class CustomerService {
 		 if (customer.getOrders() != null) {
 		        customer.getOrders().forEach(order -> order.setCustomer(customer));
 		    }
-		 else if(customer.getCusid()==customer.getCusid()){
-			 throw new CustomerExists("Customer already exists");
+		 if(repository.existsById(customer.getCusid())){
+			 throw new CustomerExists("Customer "+customer.getCusid()+" already exists");
 		 }
 		    return repository.save(customer);
 		
