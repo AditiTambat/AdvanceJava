@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.penguin_publications.Pune_publication.Entity.Author;
 import com.penguin_publications.Pune_publication.Repository.AuthorRepos;
 
+
+
 @Service
 public class AuthorService {
 	
@@ -34,9 +36,13 @@ public class AuthorService {
 		   
 	}
 	
+
 	public List<Author> getAllAuthorDetails() throws Exception{
 		
+		
 		if(!repo.findAll().isEmpty()){
+//			Thread.sleep(3000);
+//			System.out.println("from database..");
 			return repo.findAll();
 		}
 		
