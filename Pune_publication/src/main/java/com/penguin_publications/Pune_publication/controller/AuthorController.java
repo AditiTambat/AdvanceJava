@@ -3,6 +3,7 @@ package com.penguin_publications.Pune_publication.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,7 +39,7 @@ public class AuthorController {
 	
 	
 	@GetMapping("/getallauthor")
-//	@Cacheable("author")
+	@Cacheable("author")
 	public List<Author> getAllAuthor() throws Exception{
 		Thread.sleep(3000);
 		System.out.println("from database..");
