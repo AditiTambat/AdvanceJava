@@ -3,6 +3,7 @@ package com.security.DaoAcess.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +13,7 @@ import com.security.DaoAcess.Entity.UserEntity;
 import com.security.DaoAcess.Service.UserService;
 
 @RestController
+@CrossOrigin(origins ="http://127.0.0.1:5500")
 public class UserController {
 	
 	
@@ -20,15 +22,18 @@ public class UserController {
 	
 	
 	
-	@PostMapping("/add-user")
+	@PostMapping("/adduser")
 	public UserEntity adduser(@RequestBody UserEntity entity)
 	{
 	
+		
+		List<String> roles=entity.getUserRoles();
+		roles.stream().forEach(i->System.out.println(i));
 		return service.addUser(entity);
 	}
 	
-	
-	@GetMapping("/get-users")
+
+	@GetMapping("/getusers")
 	public List<UserEntity> getall()
 	{
 		return service.getallusers();
