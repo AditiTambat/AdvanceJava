@@ -23,25 +23,35 @@ public class SecurityConfiguration {
 	public SecurityFilterChain mysecurity(HttpSecurity http) throws Exception
 	{
 		
-	        http
-	            // 1. ENABLE CORS Integration
-	            // This tells Spring Security to look for and use the global 
-	            // CorsConfigurationSource bean (like the CorsConfig class below).
-	            .cors(Customizer.withDefaults()) 
-	            .csrf(csrf -> csrf.disable())
-	            .authorizeHttpRequests(authorize -> authorize
-	                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() 
-	                .requestMatchers(HttpMethod.POST).hasRole("ADMIN")
-	                .requestMatchers(HttpMethod.GET).hasAnyRole("ADMIN", "USER")
-	                .anyRequest().authenticated()
-	            )
-	            
-	            
-	            .httpBasic(Customizer.withDefaults());
+		  http
+          // 1. ENABLE CORS Integration
+          // This tells Spring Security to look for and use the global 
+          // CorsConfigurationSource bean (like the CorsConfig class below).
+          .cors(Customizer.withDefaults()) 
 
-	        return http.build();
-	}
-	
+          // 2. Disable CSRF for API endpoints
+          .csrf(csrf -> csrf.disable())
+
+          // 3. Authorization Rules
+          .authorizeHttpRequests(authorize -> authorize
+              // CRITICAL FIX: Allow all OPTIONS requests (the CORS preflight)
+              // These requests must bypass security checks.
+              .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() 
+              
+              // Your existing rules
+              .requestMatchers(HttpMethod.POST).permitAll()
+              .requestMatchers(HttpMethod.GET).hasAnyRole("ADMIN", "USER")
+              
+              // All other requests require authentication
+              .anyRequest().authenticated()
+          )
+          
+          // 4. Use HTTP Basic authentication
+          .httpBasic(Customizer.withDefaults());
+
+      return http.build();
+}
+
 	
 //	@Bean
 //	public AuthenticationProvider mysecuritys()
